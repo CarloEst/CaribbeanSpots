@@ -1,0 +1,55 @@
+
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Left Column: Restaurant Image -->
+        <div class="col-md-5">
+            {% if item.image %}
+                <img src="{{ item.image }}" alt="Image of {{ item.name }}" class="img-fluid rounded shadow">
+            {% endif %}
+        </div>
+
+        <!-- Right Column: Restaurant Details -->
+        <div class="col-md-7">
+            <h2>{{ item.name }}</h2>
+            <p><strong>Rating:</strong> {{ item.rating }}</p>
+            <p><strong>Address:</strong> {{ item.address }}</p>
+            <p><strong>Price Range:</strong> {{ item.Prices }}</p>
+            <p><strong>Popular Items:</strong> {{ ", ".join(item["popular"]) }}</p>
+            <p><strong>Country:</strong> {{ item.country }}</p>
+            <p><strong>Available Online:</strong> {{ ", ".join(item.online) }}</p>
+
+            
+            <a href="{{ url_for('edit_item', id=item.id) }}" class="btn btn-outline-secondary btn-sm">Edit</a>
+        </div>
+    </div>
+
+    <!-- Similar Restaurants Section -->
+    {% if item.similar %}
+    <h3 class="mt-4">Similar Restaurants</h3>
+    <div class="row">
+        {% for similar_id in item.similar %}
+            {% set similar_restaurant = places.get(similar_id) %}
+            {% if similar_restaurant %}
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <a href="{{ url_for('view_item', id=similar_restaurant.id) }}">
+                        <img src="{{ similar_restaurant.image }}" alt="Image of {{ similar_restaurant.name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ similar_restaurant.name }}</h5>
+                        <p class="card-text">Rating: {{ similar_restaurant.rating }}</p>
+                        <a href="{{ url_for('view_item', id=similar_restaurant.id) }}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

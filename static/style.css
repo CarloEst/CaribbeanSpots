@@ -1,0 +1,262 @@
+/* =======================
+   Global Styles
+======================= */
+:root {
+    --base-color: #004080;  /* Dark Blue */
+    --accent-color: #ff9900; /* Orange */
+    --light-grey: #f8f9fa;  /* Light Grey */
+    --dark-grey: #343a40;   /* Dark Grey */
+    --white: #ffffff;
+}
+
+/* Apply global font & background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light-grey);
+    color: var(--dark-grey);
+    margin: 0;
+    padding: 0;
+}
+
+/* =======================
+   Navbar Styling
+======================= */
+.navbar {
+    background-color: var(--white);
+    border-bottom: 3px solid var(--base-color);
+    padding: 12px 20px;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--base-color) !important;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--dark-grey) !important;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Fix navbar layout */
+.navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =======================
+   Search Bar Fixes
+======================= */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid var(--dark-grey);
+    background-color: var(--white);
+}
+
+.btn-outline-success {
+    color: var(--white) !important;
+    background-color: var(--base-color) !important;
+    border-color: var(--base-color) !important;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+/* =======================
+   Buttons
+======================= */
+.btn-primary {
+    background-color: var(--base-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+}
+
+.btn-secondary {
+    background-color: var(--dark-grey);
+    border: none;
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--base-color);
+}
+
+/* =======================
+   Homepage Styling
+======================= */
+.container {
+    max-width: 1100px;
+}
+
+/* Hero Section */
+.text-center {
+    text-align: center;
+}
+
+.text-center img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Restaurant Cards */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+}
+
+/* =======================
+   View Page Styling
+======================= */
+.view-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Main Restaurant Info */
+.restaurant-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.restaurant-image {
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional Info */
+.additional-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Similar Restaurants Section */
+.similar-restaurants {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Smaller Cards for Similar Restaurants */
+.similar-restaurants .card {
+    width: 100%;
+    max-width: 250px; 
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.similar-restaurants .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.similar-restaurants .card-text {
+    font-size: 0.85rem;
+    color: var(--dark-grey);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--base-color);
+    border: none;
+    font-size: 0.9rem; 
+    padding: 6px 12px; 
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+}
+
+/* =======================
+   Forms
+======================= */
+form {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* =======================
+   Responsive Design
+======================= */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .view-container {
+        flex-direction: column;
+    }
+
+    .restaurant-image {
+        max-width: 100%;
+    }
+
+    .similar-restaurants .card {
+        max-width: 100%;
+    }
+}

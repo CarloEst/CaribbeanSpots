@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--Olivier Estime-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="icon" href="data:,">
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+  <script src="{{ url_for('static', filename='style.js') }}"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+
+
+
+    <title>Caribbean Spots</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('homepage')}}">Caribbean Spots</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('homepage') }}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('add_item') }}">Add Restaurant</a>
+                  </li>
+              </ul>
+              <form class="d-flex" action="{{ url_for('search') }}" method="get">
+                  <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Go</button>
+              </form>
+          </div>
+      </div>
+  </nav>
+    
+    <div class="container">   
+        {% block content %}
+        {% endblock %}
+    </div>
+
+  </body>
+</html>
+
+
+
+
